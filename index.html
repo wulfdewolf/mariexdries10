@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Flowers</title>
+
+<style>
+    body {
+        margin: 0;
+        background: white;
+        font-family: sans-serif;
+
+        display: flex;
+        justify-content: center;   /* horizontal center */
+        align-items: center;       /* vertical center */
+        min-height: 100vh;
+        position: relative;        /* for absolute positioning of message */
+    }
+
+    .img-container {
+        width: 90%;
+        max-width: 600px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+    }
+
+    .img-container img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    /* Message absolutely positioned near bottom of image */
+    .message {
+        position: absolute;
+        bottom: 15%;           /* distance from bottom of viewport */
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 1.25rem;
+        opacity: 0;
+        transition: opacity 0.35s ease;
+        text-align: center;
+        max-width: 80%;
+        pointer-events: none;  /* clicks pass through */
+        color: #bc694a;
+    }
+
+    .message.show {
+        opacity: 1;
+    }
+</style>
+</head>
+<body>
+
+<div class="img-container" id="imageArea">
+    <img src="image.png" alt="Flowers">
+</div>
+
+<div id="message" class="message"></div>
+
+<script>
+    const imageArea = document.getElementById("imageArea");
+    const message = document.getElementById("message");
+
+    imageArea.addEventListener("click", () => {
+        message.textContent = "These flowers carry a gentle message.";
+        message.classList.add("show");
+
+        clearTimeout(window._msgTimer);
+        window._msgTimer = setTimeout(() => {
+            message.classList.remove("show");
+        }, 3000);
+    });
+</script>
+
+</body>
+</html>
+
