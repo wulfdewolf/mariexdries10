@@ -1,82 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!DOCTYPE html>
-<html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Flowers</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marie x Dries 10 jaar</title>
 
-<style>
-    body {
-        margin: 0;
-        background: white;
-        font-family: sans-serif;
+    <!-- Favicon for most browsers -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
-        display: flex;
-        justify-content: center;   /* horizontal center */
-        align-items: center;       /* vertical center */
-        min-height: 100vh;
-        position: relative;        /* for absolute positioning of message */
-    }
+    <!-- PNG favicons -->
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 
-    .img-container {
-        width: 90%;
-        max-width: 600px;
-        cursor: pointer;
-        display: flex;
-        justify-content: center;
-    }
+    <!-- Apple touch icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 
-    .img-container img {
-        width: 100%;
-        height: auto;
-        display: block;
-    }
+    <!-- Android icons -->
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#bc694a">
 
-    /* Message absolutely positioned near bottom of image */
-    .message {
-        position: absolute;
-        bottom: 15%;           /* distance from bottom of viewport */
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 1.25rem;
-        opacity: 0;
-        transition: opacity 0.35s ease;
-        text-align: center;
-        max-width: 80%;
-        pointer-events: none;  /* clicks pass through */
-        color: #bc694a;
-    }
+    <style>
+        body {
+            margin: 0;
+            background: white;
+            font-family: sans-serif;
 
-    .message.show {
-        opacity: 1;
-    }
-</style>
+            display: flex;
+            justify-content: center;
+            /* horizontal center */
+            align-items: center;
+            /* vertical center */
+            min-height: 100vh;
+            position: relative;
+            /* for absolute positioning of message */
+        }
+
+        .img-container {
+            width: 90%;
+            max-width: 600px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Message absolutely positioned near bottom of image */
+        .message {
+            position: absolute;
+            bottom: 15%;
+            /* distance from bottom of viewport */
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.25rem;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            text-align: center;
+            max-width: 80%;
+            pointer-events: none;
+            color: #bc694a;
+        }
+
+        .message.show {
+            opacity: 1;
+        }
+    </style>
 </head>
+
 <body>
 
-<div class="img-container" id="imageArea">
-    <img src="image.png" alt="Flowers">
-</div>
+    <div class="img-container" id="imageArea">
+        <img src="image.png" alt="Flowers">
+    </div>
 
-<div id="message" class="message"></div>
+    <div id="message" class="message"></div>
 
-<script>
-    const imageArea = document.getElementById("imageArea");
-    const message = document.getElementById("message");
+    <script>
+        const imageArea = document.getElementById("imageArea");
+        const message = document.getElementById("message");
 
-    imageArea.addEventListener("click", () => {
-        message.textContent = "These flowers carry a gentle message.";
-        message.classList.add("show");
+        imageArea.addEventListener("click", () => {
+            message.textContent = "These flowers carry a gentle message.";
+            message.classList.add("show");
 
-        clearTimeout(window._msgTimer);
-        window._msgTimer = setTimeout(() => {
-            message.classList.remove("show");
-        }, 3000);
-    });
-</script>
+            clearTimeout(window._msgTimer);
+            window._msgTimer = setTimeout(() => {
+                message.classList.remove("show");
+            }, 3000);
+        });
+    </script>
 
 </body>
-</html>
 
+</html>
